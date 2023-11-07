@@ -45,6 +45,10 @@ Also, it is configurable by setting `PORT`, `FILENAME`, `MARGIN_PERCENT` and `LO
 > I haven't added any dotenv file load/processing, nor any yaml configuration files, cause that would add more dependencies to the project,
 > which can be easily avoided since our app is quite simple.
 
+## Logger
+
+The logger is the stdlib logger. For proper structured logging, a better logger like `uber/zap` should be added.
+
 ## Algorithm
 
 Since the task requires to put the file into a slice (and not a tree, or a db), the best algo for such case is a binary search algorithm (O logN)
