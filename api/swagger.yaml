@@ -1,0 +1,43 @@
+openapi: "3.0.3"
+info:
+  version: 1.0.0
+  title: File Search API
+paths:
+  /index/{value}:
+    get:
+      description: Returns the index of the given value in the file
+      parameters:
+        - in: path
+          name: value
+          schema:
+            type: integer
+          required: true
+          description: The search value
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  index:
+                    type: integer
+                    description: The index of the requested value in the file
+                    example: 102
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        500:
+          description: Internal Server Error
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error message
